@@ -1,0 +1,8 @@
+export default function CheckoutPage() {
+  return (
+    <div className="p-8">
+      <h1 className="text-2xl font-bold">CheckoutPage</h1>
+      <p>Welcome to the CheckoutPage of SmartKasir.</p>
+    </div>
+  );
+}
