@@ -613,3 +613,365 @@
     box-shadow: -10px 0 40px rgba(0,0,0,0.1);
   }
 }
+
+/* ==========================================
+   MODERN POS MODALS & CHECKOUT ACTIONS
+   ========================================== */
+
+/* Hover & Interactive States (Requirement 14) */
+.pos-card, .popular-card, .cat-pill, .qty-btn, .method-btn, .btn-print, .btn-pay, .pos-floating-cart {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.pos-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05) !important;
+  border-color: #cbd5e1 !important;
+}
+.popular-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  border-color: #cbd5e1 !important;
+}
+.method-btn:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+}
+.btn-pay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5) !important;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+}
+
+/* Modal Overlay */
+.pos-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: posOverlayFade 0.25s ease forwards;
+}
+
+@keyframes posOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Card */
+.pos-modal-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 28px;
+  width: 480px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  animation: posModalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes posModalPop {
+  from { transform: scale(0.92) translateY(12px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.pos-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pos-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2b4c7e;
+}
+
+.pos-modal-close-btn {
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.pos-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Form Styles */
+.pos-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.pos-form-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.pos-form-input, .pos-form-select {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  background: white;
+  transition: all 0.25s ease;
+}
+.pos-form-input:focus, .pos-form-select:focus {
+  border-color: #2b4c7e;
+  box-shadow: 0 0 0 3px rgba(43, 76, 126, 0.12);
+}
+
+/* Fast Cash Options grid */
+.fast-cash-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+.btn-quick-cash {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-quick-cash:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* Warning Label */
+.pos-warning-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ef4444;
+  margin-top: 4px;
+}
+
+/* Modal Action buttons */
+.pos-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-pos-cancel {
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #64748b;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-pos-cancel:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.btn-pos-submit {
+  background: #2563eb;
+  color: white;
+  border: none;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+.btn-pos-submit:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+.btn-pos-submit:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Success Checkmark Animation */
+.success-checkmark-box {
+  width: 72px;
+  height: 72px;
+  margin: 10px auto 20px auto;
+  background: #dcfce7;
+  color: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+  animation: tickPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes tickPop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.success-checkmark-box svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* Thermal Paper Receipt Layout */
+.receipt-wrapper {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #1e293b;
+  border-radius: 4px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+  font-size: 13px;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.receipt-store-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2b4c7e;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.receipt-store-info {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #cbd5e1;
+  margin: 12px 0;
+}
+
+.receipt-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.receipt-item-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.receipt-item-name {
+  font-weight: bold;
+  flex: 1;
+}
+
+.receipt-item-qty {
+  margin-right: 16px;
+}
+
+.receipt-item-price {
+  font-weight: bold;
+}
+
+.receipt-total-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt-total-row.grand-total {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Spinner Loader */
+.spinner-ring {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #2b4c7e;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Toast Success Notification POS */
+.pos-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: #1e293b;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  animation: posToastSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes posToastSlide {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.pos-toast-success-icon {
+  color: #10b981;
+  display: flex;
+}
+
