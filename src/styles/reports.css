@@ -1153,3 +1153,158 @@
     width: 100%;
   }
 }
+
+/* ========================================================
+   SMARTKASIR REPORTS MODAL SYSTEM & PREMIUM HOVERS
+   ======================================================== */
+
+.summary-card {
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(99, 102, 241, 0.15) !important;
+}
+.summary-card.active {
+  border-width: 1.5px !important;
+  box-shadow: 0 12px 24px -4px rgba(99, 102, 241, 0.2) !important;
+}
+.summary-card.accent-purple.active { border-color: #6366f1 !important; background: #eff6ff !important; }
+.summary-card.accent-red.active { border-color: #ef4444 !important; background: #fff1f2 !important; }
+.summary-card.accent-blue.active { border-color: #3b82f6 !important; background: #eff6ff !important; }
+.summary-card.accent-emerald.active { border-color: #10b981 !important; background: #ecfdf5 !important; }
+
+.stat-item-card {
+  cursor: pointer;
+  transition: all 0.25s ease !important;
+}
+.stat-item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.08) !important;
+  border-color: #6366f1 !important;
+}
+.peak-sales-box {
+  cursor: pointer;
+  transition: all 0.25s ease !important;
+}
+.peak-sales-box:hover {
+  opacity: 0.95;
+}
+
+/* Modals Overlay (Requirement 3, 5, 6, 7, 8, 10, 11) */
+.rep-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: repOverlayFade 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes repOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.rep-modal-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 28px;
+  width: 520px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: repModalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes repModalPop {
+  from { transform: scale(0.92) translateY(12px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.rep-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rep-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.rep-modal-close-btn {
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.rep-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.rep-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.rep-detail-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.rep-detail-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+.rep-detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.rep-detail-row:last-child {
+  margin-bottom: 0;
+}
+.rep-detail-label {
+  color: #64748b;
+}
+.rep-detail-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+

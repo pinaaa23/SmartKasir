@@ -947,3 +947,252 @@
     width: 100%;
   }
 }
+
+/* ========================================================
+   SMARTKASIR CRM CUSTOMERS VISUAL EXTENSIONS & HOVERS
+   ======================================================== */
+
+.cust-stat-card {
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.cust-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(99, 102, 241, 0.15) !important;
+}
+
+.cust-stat-card.active {
+  border-width: 1.5px !important;
+  box-shadow: 0 12px 24px -4px rgba(99, 102, 241, 0.2) !important;
+}
+
+.cust-stat-card.accent-purple.active { border-color: #6366f1 !important; background: #f5f3ff !important; }
+.cust-stat-card.accent-blue.active { border-color: #3b82f6 !important; background: #eff6ff !important; }
+.cust-stat-card.accent-emerald.active { border-color: #10b981 !important; background: #ecfdf5 !important; }
+.cust-stat-card.accent-indigo.active { border-color: #4f46e5 !important; background: #eef2ff !important; }
+
+/* Active Row highlighting with Indigo Left Border */
+.cust-data-table tr {
+  transition: all 0.25s ease;
+}
+
+.cust-data-table tr.active-row td {
+  background: rgba(99, 102, 241, 0.05) !important;
+}
+
+.cust-data-table tr.active-row td:first-child {
+  border-left: 4px solid #6366f1;
+}
+
+/* Empty State Details Panel styling */
+.cust-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  gap: 16px;
+  color: #64748b;
+  min-height: 400px;
+  animation: custFadeIn 0.4s ease-out;
+}
+
+.cust-empty-icon-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  border: 2px dashed #cbd5e1;
+}
+
+.cust-empty-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cust-empty-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* Member benefits details */
+.member-benefits-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.member-benefit-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.member-benefit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.benefit-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.benefit-badge.green {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.benefit-badge.orange {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* Action button rows in detail panel */
+.cust-detail-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.btn-detail-action {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-detail-action.edit {
+  background: white;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+.btn-detail-action.edit:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+.btn-detail-action.delete {
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #ef4444;
+}
+
+.btn-detail-action.delete:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Confirm Dialog Styling */
+.cust-confirm-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: custModalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cust-confirm-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fef2f2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cust-confirm-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cust-confirm-text {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.3);
+}
+
+.btn-view-all-tx {
+  width: 100%;
+  padding: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #6366f1;
+  font-weight: 700;
+  font-size: 11px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+
+.btn-view-all-tx:hover {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: #6366f1;
+}
+
