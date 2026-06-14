@@ -451,42 +451,6 @@ export default function CustomersPage() {
   };
 
   // ========================================================
-  // DYNAMIC CLIENT-SIDE EXPORT (CSV SINKRON)
-  // ========================================================
-  const handleExportData = (format) => {
-    const filename = `Data_Pelanggan_SmartKasir_${new Date().toISOString().substring(0,10)}.${format}`;
-    triggerToast(`Mengekspor data pelanggan (${filteredAndSortedCustomers.length} member tersaring) sebagai ${format.toUpperCase()}...`);
-
-    setTimeout(() => {
-      let content = "";
-      if (format === 'csv') {
-        content = "ID Pelanggan,Nama Lengkap,Email,No. Telepon,Total Belanja,Kuantitas Transaksi,Tier Keanggotaan,Poin Loyalitas,Tanggal Bergabung,Alamat\n";
-        filteredAndSortedCustomers.forEach(c => {
-          content += `${c.id},${c.name},${c.email},${c.phone},${c.totalSpend},${c.txCount},${c.tier},${c.points},${c.joinedDate},"${c.address.replace(/"/g, '""')}"\n`;
-        });
-      } else {
-        // excel tabbed raw text simulation
-        content = "ID Pelanggan\tNama Lengkap\tEmail\tNo. Telepon\tTotal Belanja\tTransaksi\tTier\tPoin\tTanggal Gabung\tAlamat\n";
-        filteredAndSortedCustomers.forEach(c => {
-          content += `${c.id}\t${c.name}\t${c.email}\t${c.phone}\t${c.totalSpend}\t${c.txCount}\t${c.tier}\t${c.points}\t${c.joinedDate}\t${c.address}\n`;
-        });
-      }
-
-      const blob = new Blob([content], { type: 'text/plain;charset=utf-8;' });
-      const link = document.createElement("a");
-      const url = URL.createObjectURL(blob);
-      link.setAttribute("href", url);
-      link.setAttribute("download", filename);
-      link.style.visibility = 'hidden';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      triggerToast(`Unduhan berkas ${format.toUpperCase()} berhasil diselesaikan!`);
-    }, 1200);
-  };
-
-  // ========================================================
   // CONNECTIVITY TO TRANSACTION PAGE ROUTING
   // ========================================================
   const handleRedirectToTransactions = () => {
@@ -511,28 +475,7 @@ export default function CustomersPage() {
           1. HEADER ATAS (TITLE & ACTION CONTROLS)
           ======================================================== */}
       <div className="cust-header">
-        <div className="cust-header-left">
-          <h1 className="cust-page-title">Sistem CRM Pelanggan</h1>
-          <p className="cust-page-subtitle">Kelola loyalty point, keanggotaan member, dan spending pelanggan POS</p>
-        </div>
-
-        <div className="cust-header-right">
-          {/* Real-time search box */}
-          <div className="cust-search-box">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input 
-              className="cust-search-input" 
-              placeholder="Cari ID, Nama, Email, Telepon..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-
-          <button className="btn-export-cust" onClick={() => handleExportData('csv')}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Ekspor CSV
-          </button>
-        </div>
+        <div className="cust-header-right"></div>
       </div>
 
       {/* ========================================================
@@ -662,20 +605,6 @@ export default function CustomersPage() {
             </div>
 
             <div className="cust-table-actions">
-              {/* Dropdown filter Keanggotaan */}
-              <select 
-                className="select-cust-tier" value={tierFilter}
-                onChange={(e) => {
-                  setTierFilter(e.target.value);
-                  triggerToast(`Keanggotaan disaring berdasar: ${e.target.value}!`);
-                }}
-              >
-                <option value="Semua">Semua Tier Keanggotaan</option>
-                <option value="Platinum">Platinum Member</option>
-                <option value="Gold">Gold Member</option>
-                <option value="Silver">Silver Member</option>
-                <option value="Regular">Regular Member</option>
-              </select>
             </div>
           </div>
 
@@ -1128,12 +1057,6 @@ export default function CustomersPage() {
           </div>
         </div>
       )}
-
-      {/* 7. FLOATING ACTION BUTTON "+ Tambah Pelanggan" */}
-      <button className="fab-cust-add" onClick={() => setShowAddModal(true)} title="Tambah member pelanggan baru">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Tambah Pelanggan
-      </button>
 
     </div>
   );
