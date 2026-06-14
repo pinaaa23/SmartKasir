@@ -605,7 +605,6 @@ export default function TransactionsPage() {
       </div>
 
       {/* Page Title */}
-      <h1 className="trx-page-title">Riwayat Transaksi</h1>
 
       {/* Stat Cards (Requirement 2 & 12) */}
       <div className="trx-stat-row">

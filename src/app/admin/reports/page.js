@@ -1171,11 +1171,6 @@ export default function ReportsPage() {
           1. HEADER ATAS (FILTERS & EXPORTS SYSTEM)
           ======================================================== */}
       <div className="reports-header">
-        <div className="reports-header-left">
-          <h1 className="reports-page-title">Analitik SmartKasir</h1>
-          <p className="reports-page-subtitle">Dashboard bisnis interaktif & kalkulator keuntungan POS real-time</p>
-        </div>
-        
         <div className="reports-header-right">
           <div className="reports-date-filter">
             <button className={`reports-filter-btn ${dateRange === 'hari-ini' ? 'active' : ''}`} onClick={() => { setDateRange('hari-ini'); setActiveKpiFilter(null); }}>Hari Ini</button>
